@@ -11,6 +11,7 @@ public class PlayerHealthManager : MonoBehaviour
     private int currentHealth;
 
     public UnityEvent<int, int> OnChangeHealth;
+    public UnityEvent PlayerDeath;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class PlayerHealthManager : MonoBehaviour
     public void Die(GameObject killer)
     {
         Debug.Log(gameObject.name + " was killed by " + killer.name);
+        PlayerDeath.Invoke();
         Destroy(gameObject);
     }
 }
