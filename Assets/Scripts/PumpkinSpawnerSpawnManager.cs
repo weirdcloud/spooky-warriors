@@ -38,9 +38,13 @@ public class PumpkinSpawnerSpawnManager : MonoBehaviour
     }
     bool TargetInRange(Transform target)
     {
-        Vector2 target2DPosition = new Vector2(target.position.x, target.position.y);
-        Vector2 this2DPosition = new Vector2(transform.position.x, transform.position.y);
-        return Vector2.Distance(target2DPosition, this2DPosition) <= range;
+        if (target != null)
+        {
+            Vector2 target2DPosition = new Vector2(target.position.x, target.position.y);
+            Vector2 this2DPosition = new Vector2(transform.position.x, transform.position.y);
+            return Vector2.Distance(target2DPosition, this2DPosition) <= range;
+        }
+        return false;
     }
     void FireAtTarget(Transform target)
     {
