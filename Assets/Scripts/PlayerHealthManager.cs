@@ -19,7 +19,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void ChangeHealth(GameObject dealer, int amount)
     {
-        currentHealth -= amount;
+        currentHealth += amount;
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
